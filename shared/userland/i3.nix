@@ -2,7 +2,7 @@
 {
     imports = [
         ./desktop-shared.nix
-    ]
+    ];
     environment.pathsToLink = [ "/libexec" ];
     services.xserver = {
     enable = true;
@@ -13,6 +13,7 @@
         enable = true;
         noDesktop = true;
         enableXfwm = false;
+      };
     };
    
     displayManager = {
@@ -27,7 +28,7 @@
         i3lock #default i3 screen locker
         i3blocks #if you are planning on using i3blocks over i3status
      ];
-     package
+     package = pkgs.i3-gaps
     };
   };
 }

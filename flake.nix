@@ -1,5 +1,3 @@
-# flake.nix
-
 {
   description = "Sean's NixOS Config";
 
@@ -7,17 +5,16 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
   };
 
-  outputs = { self, nixpkgs }: {
+  outputs = { self, nixpkgs, ... }: {
     # Define your machines here
     nixosConfigurations = {
-      laptop = {
+      laptop = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
-        config = {
-          imports = [
+        modules = [
             ./hardware-configuration.nix
-            ./machines
+            ./machines/laptop.nix
+#           ./configuration.nix
           ];
-        };
       };
     };
   };

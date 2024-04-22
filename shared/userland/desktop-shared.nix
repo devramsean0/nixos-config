@@ -11,8 +11,8 @@
         spotify
         _1password
         _1password-gui
-    ]
+    ];
     programs.steam = {
         enable = true;
-    }
+    };
 }

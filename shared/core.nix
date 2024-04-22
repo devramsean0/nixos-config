@@ -29,13 +29,13 @@
   
   # Standard packages that I want on all machines + minor package allowance
   nixpkgs.config.allowUnfree = true;
-  environment.sytemPackages = with pkgs; [
+  environment.systemPackages = with pkgs; [
     starship
     gh
     git
     hyfetch
     unzip
-  ]
+  ];
   services.tailscale.enable = true;
 
   services.openssh = {
@@ -63,7 +63,7 @@
     sean = {
       isNormalUser = true;
       description = "Sean";
-      extraGroups = [ "networkManager" "wheel" "docker"]
+      extraGroups = [ "networkManager" "wheel" "docker"];
       packages = with pkgs; [];
       openssh = {
         authorizedKeys.keys = [
