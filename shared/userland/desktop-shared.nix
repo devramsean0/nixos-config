@@ -1,6 +1,6 @@
 { config, pkgs, ... }:
 {
-    environment.systemPackages with pkgs; [
+    environment.systemPackages = with pkgs; [
         firefox
         slack
         discord
@@ -14,5 +14,9 @@
     ];
     programs.steam = {
         enable = true;
+    };
+    services.xserver = {
+	layout = "gb";
+	xkbVariant = "";
     };
 }
