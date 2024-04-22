@@ -9,13 +9,13 @@
 
   outputs = { self, nixpkgs }: {
     # Define your machines here
-    machines = {
+    nixosConfigurations = {
       laptop = {
         system = "x86_64-linux";
         config = {
           imports = [
             ./hardware-configuration.nix
-            ./machines/laptop.nix
+            ./machines
           ];
         };
       };
