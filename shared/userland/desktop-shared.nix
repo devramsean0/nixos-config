@@ -6,9 +6,9 @@
         discord
         vscode
         libreoffice
-        cloudflare-warp
-        zoom-us
-        spotify
+#        cloudflare-warp
+#        zoom-us
+#        spotify
         _1password
         _1password-gui
     ];
