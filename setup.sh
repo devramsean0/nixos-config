@@ -16,7 +16,8 @@ then
     #
     echo "Cloning Config"
     git clone https://github.com/devramsean0/nixos-config.git
-    cp nixos-config .
+    echo "Copying config"
+    cp ./nixos-config .
 
     #
     # Setup Config
