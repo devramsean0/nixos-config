@@ -16,7 +16,9 @@
         enable = true;
     };
     services.xserver = {
-	layout = "gb";
-	xkbVariant = "";
+	xkb = {
+		layout = "gb";
+		variant = "";
+	};   
     };
 }

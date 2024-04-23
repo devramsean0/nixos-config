@@ -11,7 +11,7 @@
       laptop = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
-            ./hardware/laptop.nix
+            ./hardware/dell-inspiron-3520.nix
             ./machines/laptop.nix
 #           ./configuration.nix
           ];
