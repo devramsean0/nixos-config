@@ -1,12 +1,14 @@
 { config, pkgs, ... }:
 {
+    imports = [
+	../../programs/firefox.nix
+    ];
     environment.systemPackages = with pkgs; [
-        firefox
         slack
         discord
         vscode
         libreoffice
-#        cloudflare-warp
+        cloudflare-warp
 #        zoom-us
 #        spotify
         _1password
