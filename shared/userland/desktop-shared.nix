@@ -1,18 +1,19 @@
-{ config, pkgs, ... }:
+{ config, pkgs, wolfangaukang, ... }:
 {
     imports = [
 	../../programs/firefox.nix
+	wolfangaukang.nixosModules.cloudflare-warp
     ];
     environment.systemPackages = with pkgs; [
         slack
         discord
         vscode
         libreoffice
-        cloudflare-warp
+	cloudflare-warp
 #        zoom-us
 #        spotify
-        _1password
-        _1password-gui
+       _1password
+       _1password-gui
     ];
     programs.steam = {
         enable = true;
@@ -22,5 +23,9 @@
 		layout = "gb";
 		variant = "";
 	};   
+    };
+    services.cloudflare-warp = {
+	enable = false;
+	certificate = ../../certificates/cloudflare.pem;
     };
 }

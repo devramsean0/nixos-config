@@ -1,5 +1,7 @@
 { config, pkgs, ... }:
 {
+  imports = [
+  ];
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -35,6 +37,8 @@
     git
     hyfetch
     unzip
+    acpi
+    pavucontrol
   ];
   services.tailscale.enable = true;
 
@@ -72,6 +76,11 @@
       };
     };
   };
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
   system.stateVersion = "23.05";
+
+  # Audio
+  hardware.pulseaudio.enable = true;
+  hardware.pulseaudio.support32Bit = true;
 }
 

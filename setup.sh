@@ -20,9 +20,10 @@ then
     #
     # Setup Config
     #
-    echo "Setting up the config"
-    mv ../hardware-configuration.nix hardware-configuration.nix
-    echo "Setting minimal configuration.nix"
+    machine_name = sudo dmidecode | grep 'Product Name'
+    echo "
+    mv ../hardware-configuration.nix hardware/$machine_name.nix
+    echo "
 else
     echo "Please provide a hostname"
 fi

@@ -62,11 +62,11 @@
             install_url = "https://addons.mozilla.org/firefox/downloads/latest/1password-x-password-manager/latest.xpi";
             installation_mode = "force_installed";
           };
-	  # Dark Mode
-	  "{830f38bd-efc5-45dc-a5a6-064d9a638806}" = {
-	    install_url = "https://addons.mozilla.org/firefox/downloads/latest/dark-mode-by-albert-inc/latest.xpi";
-	    installation_mode = "force_installed";
-	  };
+#	  # Dark Mode
+#	  "{830f38bd-efc5-45dc-a5a6-064d9a638806}" = {
+#	    install_url = "https://addons.mozilla.org/firefox/downloads/latest/dark-mode-by-albert-inc/latest.xpi";
+#	    installation_mode = "force_installed";
+#	  };
         };
   
         /* ---W- PREFERENCES ---- */
