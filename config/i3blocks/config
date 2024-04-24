@@ -1,0 +1,29 @@
+[VOLUME]
+command=echo "Volume: $(pactl list sinks | grep Volume | head -n1 | awk '{print $5}')"
+interval=1
+
+[BATTERY]
+command=~/.config/i3blocks/battery/battery.sh
+interval=1
+
+[DISK]
+command=df -h / | awk '/\//{ printf(" 💾 %4s/%s \n", $4, $2) }'
+interval=2
+color=#C9E3DB
+
+[MEM]
+command=free -h | awk '/Mem:/ { printf(" 🐏 %5s/%s \n", $3, $2) }'
+interval=1
+color=#FEC925
+
+#[WARP]
+#command=warp-cli status
+#interval=5
+
+[USER]
+command=whoami
+interval=200
+
+[TIME_DATE]
+command=date +" %a, %d %b - %H:%M:%S"
+interval=1

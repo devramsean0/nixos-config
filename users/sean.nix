@@ -1,6 +1,9 @@
 { config, pkgs, ... }:
 
 {
+  imports = [
+    ../shared/configs.nix
+  ];
   home.homeDirectory = "/home/sean";
   home.username = "sean";
   home.stateVersion = "23.11";
