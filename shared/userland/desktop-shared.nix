@@ -14,6 +14,7 @@
 #        spotify
        _1password
        _1password-gui
+       beeper
     ];
     programs.steam = {
         enable = true;

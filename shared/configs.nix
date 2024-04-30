@@ -1,18 +1,64 @@
-{ config, pkgs, ... }:
-{
+{ config, pkgs, lib, ... }:
+let mod = "Mod4";
+in {
+  # i3
   xdg.configFile."i3blocks" = {
     recursive = false;
     enable = true;
     source = ../config/i3blocks;
   };
-  xdg.configFile."i3" = {
-    recursive = false;
-    enable = true;
-    source = ../config/i3;
-  };
   xdg.configFile."rofi/config.rasi" = {
     enable = true;
     source = ../config/rofi/config.rasi;
+  };
+  xsession.windowManager.i3 = {
+    enable = true;
+    config = {
+      modifier = mod;
+      fonts = ["FiraCode"];
+      keybindings = lib.mkOptionDefault {
+	# Basic Keybinds
+        "${mod}+d" = "exec --no-startup-id dmenu_run";
+	"${mod}+Shift+x" = "exec sh -c 'i3lock -c 222222 & sleep 5 && xset dpms force of'";
+	"${mod}+Return" = "exec i3-sensible-terminal";
+        # Focus
+        "${mod}+j" = "focus left";
+        "${mod}+k" = "focus down";
+        "${mod}+l" = "focus up";
+        "${mod}+semicolon" = "focus right";
+        # Move
+        "${mod}+Shift+j" = "move left";
+        "${mod}+Shift+k" = "move down";
+        "${mod}+Shift+l" = "move up";
+        "${mod}+Shift+semicolon" = "move right";
+	# Workspaces
+        "${mod}+w+1" = "workspace number $ws1";
+	"${mod}+w+2" = "workspace number $ws2";
+	"${mod}+w+3" = "workspace number $ws3";
+	"${mod}+w+4" = "workspace number $ws4";
+	"${mod}+w+5" = "workspace number $ws5";
+
+	"${mod}+Shift+w+1" = "move container to workspace number $ws1";
+	"${mod}+Shift+w+2" = "move container to workspace number $ws2";
+	"${mod}+Shift+w+3" = "move container to workspace number $ws3";
+	"${mod}+Shift+w+4" = "move container to workspace number $ws4";
+	"${mod}+Shift+w+5" = "move container to workspace number $ws5";
+
+      };
+      bars = [
+        {
+	  position = "top";
+	  statusCommand = "i3blocks";
+        }
+      ];
+    };
+    extraConfig = "
+	set $sw1 'Browser'\n
+	set $sw2 'Terminal'\n
+	set $sw3 'Chat'\n
+	set $sw4 '4'\n
+	set $sw5 '5'\n
+    ";
   };
 }
 
