@@ -16,6 +16,7 @@
     userEmail = "outramsean0@gmail.com";
     extraConfig = {
       pull.ff = "only";
+      safe.directory = "/etc/nixos";
     };
   };
 }

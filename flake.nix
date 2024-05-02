@@ -26,6 +26,19 @@
 #           ./configuration.nix
           ];
       };
+      netcup = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        specialArgs = attrs;
+        modules = [
+	  home-manager.nixosModules.home-manager {
+	    home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.users.sean = import ./users/sean.nix;
+          }
+	  ./hardware/netcup-vps-200-g10s.nix
+	  ./machines/netcup.nix
+       ];
+      };
     };
   };
 }
