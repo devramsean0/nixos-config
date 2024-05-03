@@ -16,4 +16,5 @@
             CPU_SCALING_GOVERNOR_ON_BAT = "powersave";
         };
     };
+    services.tailscale.useRoutingFeatures ="client";
 }

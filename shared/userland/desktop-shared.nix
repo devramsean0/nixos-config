@@ -15,6 +15,7 @@
        _1password
        _1password-gui
        beeper
+       wine
     ];
     programs.steam = {
         enable = true;
