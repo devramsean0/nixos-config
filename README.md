@@ -7,3 +7,4 @@ THis is my multi-machine nixos configuration, you are welcome to copy this and m
 - `machines/` - Contains the machine specific config's
 - `programs/` - Contains any program configs (Think Firefox settings)
 - `users/` - Contains the home manager config's for any configured users
+- `config/` - Contains any config files imported by Home Manager on build
