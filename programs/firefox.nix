@@ -24,7 +24,7 @@
         DisableFirefoxStudies = true;
         EnableTrackingProtection = {
           Value= false;
-          Locked = false;
+          Locked = true;
           Cryptomining = false;
           Fingerprinting = false;
         };

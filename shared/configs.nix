@@ -43,7 +43,13 @@ in {
 	"${mod}+Shift+w+3" = "move container to workspace number $ws3";
 	"${mod}+Shift+w+4" = "move container to workspace number $ws4";
 	"${mod}+Shift+w+5" = "move container to workspace number $ws5";
-
+	# Audio
+	"XF86AudioRaiseVolume" = "exec --no-startup-id pactl set-sink-volume 0 +5%";
+	"XF86AudioLowerVolume" = "exec --no-startup-id pactl set-sink-volume 0 -5%";
+	"XF86AudioMute" = "exec --no-startup-id pactl set-sink-mute 0 toggle";
+	# Screen Brightness
+	"XF86MonBrightnessUp" = "exec xbacklight -inc 20";
+	"XF86MonBrightnessDown" = " exec xbacklight -dec 20";
       };
       bars = [
         {

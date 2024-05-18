@@ -19,5 +19,9 @@
       safe.directory = "/etc/nixos";
     };
   };
+  home.file.".background-image" = {
+    enable = true;
+    source = ../config/i3/.background-image;
+  };
 }
 

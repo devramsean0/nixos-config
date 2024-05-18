@@ -16,6 +16,7 @@
        _1password-gui
        beeper
        wine
+       kicad
     ];
     programs.steam = {
         enable = true;
