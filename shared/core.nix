@@ -2,9 +2,7 @@
 {
   imports = [
   ];
-  # Enable networking
   networking.networkmanager.enable = true;
-
   # Set timezone
   time.timeZone = "Europe/London";
 
@@ -70,6 +68,7 @@
           "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIB9sx5+UaHAudLKJkXq0il8VsauOZqmjAUC41/BS9G8q sean"
         ];
       };
+     hashedPassword = "$6$XxzpK4DwPBUdEP48$p/4MlWxtRAi8/l3jw3WftC2AhVHpznJt6O/xAEFnEq9Z71hAUl3.X3g4LcJH3XVhZwnoSLCFfwSHCEZ4QOv5u0";
     };
   };
   nix.settings.experimental-features = [ "nix-command" "flakes" ];

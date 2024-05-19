@@ -18,7 +18,7 @@
         modules = [
 	    home-manager.nixosModules.home-manager {
 		home-manager.useGlobalPkgs = true;
-           	home-manager.useUserPackages = true;
+          	home-manager.useUserPackages = true;
 		home-manager.users.sean = import ./users/sean.nix;
 	    }
             ./hardware/dell-inspiron-3520.nix
@@ -43,8 +43,13 @@
 	system = "x86_64-linux";
 	specialArgs = attrs;
 	modules = [
+	  home-manager.nixosModules.home-manager {
+	    home-manager.useGlobalPkgs = true;
+	    home-manager.useUserPackages = true;
+	    home-manager.users.sean = import ./users/sean.nix;
+	  }
 	  "${nixpkgs}/nixos/modules/installer/cd-dvd/installation-cd-base.nix"
-	  ./shared/userland/i3.nix
+	  ./machines/iso.nix
 	];	
       };
     };
