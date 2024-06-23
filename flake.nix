@@ -12,7 +12,7 @@
   outputs = { self, nixpkgs, home-manager, wolfangaukang, ... }@attrs: {
     # Define your machines here
     nixosConfigurations = {
-      laptop = nixpkgs.lib.nixosSystem {
+      maximus = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
 	specialArgs = attrs;
         modules = [
@@ -22,7 +22,7 @@
 		home-manager.users.sean = import ./users/sean.nix;
 	    }
             ./hardware/dell-inspiron-3520.nix
-            ./machines/laptop.nix
+            ./machines/maximus.nix
 #           ./configuration.nix
           ];
       };
