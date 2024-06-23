@@ -3,18 +3,16 @@ command=echo "Volume: $(pactl list sinks | grep Volume | head -n1 | awk '{print 
 interval=1
 
 [BATTERY]
-command=~/.config/i3blocks/battery/battery.sh
+command=echo "Battery: $(acpi -b | grep -E -o '[0-9][0-9][0-9]?%')"
 interval=1
 
 [DISK]
 command=df -h / | awk '/\//{ printf(" 💾 %4s/%s \n", $4, $2) }'
-interval=2
-color=#C9E3DB
+interval=5
 
 [MEM]
 command=free -h | awk '/Mem:/ { printf(" 🐏 %5s/%s \n", $3, $2) }'
-interval=1
-color=#FEC925
+interval=2
 
 #[WARP]
 #command=warp-cli status

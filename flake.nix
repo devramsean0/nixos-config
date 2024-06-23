@@ -20,6 +20,7 @@
 		home-manager.useGlobalPkgs = true;
           	home-manager.useUserPackages = true;
 		home-manager.users.sean = import ./users/sean.nix;
+#		home-manager.users.root = import ./users/sean.nix;
 	    }
             ./hardware/dell-inspiron-3520.nix
             ./machines/laptop.nix
@@ -34,6 +35,7 @@
 	    home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
             home-manager.users.sean = import ./users/sean.nix;
+#	    home-manager.users.root = import ./users/root.nix;
           }
 	  ./hardware/netcup-vps-200-g10s.nix
 	  ./machines/netcup.nix
@@ -47,6 +49,7 @@
 	    home-manager.useGlobalPkgs = true;
 	    home-manager.useUserPackages = true;
 	    home-manager.users.sean = import ./users/sean.nix;
+#	    home-manager.users.root = import ./users/root.nix;
 	  }
 	  "${nixpkgs}/nixos/modules/installer/cd-dvd/installation-cd-base.nix"
 	  ./machines/iso.nix

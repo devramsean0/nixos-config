@@ -15,7 +15,7 @@
     firefox = {
       package = pkgs.firefox-esr;
       enable = true;
-      languagePacks = [ "en-US" ];
+      languagePacks = [ "en-GB" ];
 
       /* ---- POLICIES ---- */
       # Check about:policies#documentation for options.
@@ -28,7 +28,7 @@
           Cryptomining = false;
           Fingerprinting = false;
         };
-        DisablePocket = true;
+        DisablePocket = false;
         DisableFirefoxAccounts = true;
         DisableAccounts = true;
         DisableFirefoxScreenshots = true;

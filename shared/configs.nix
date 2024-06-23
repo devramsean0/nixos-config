@@ -11,6 +11,16 @@ in {
     enable = true;
     source = ../config/rofi/config.rasi;
   };
+
+  # Console
+  programs.zsh = {
+    enable = true;
+    initExtra = "eval \"$(starship init zsh\"";
+  };
+  xdg.configFile."starship.toml" = {
+    enable = true;
+    source = ../config/starship.toml;
+  };
   xsession.windowManager.i3 = {
     enable = true;
     config = {
@@ -59,11 +69,12 @@ in {
       ];
     };
     extraConfig = "
-	set $sw1 'Browser'\n
-	set $sw2 'Terminal'\n
-	set $sw3 'Chat'\n
-	set $sw4 '4'\n
-	set $sw5 '5'\n
+	set $ws1 'Browser'\n
+	set $ws2 'Terminal'\n
+	set $ws3 'Chat'\n
+	set $ws4 '4'\n
+	set $ws5 '5'\n
+	exec --no-startup-id nm-applet\n
     ";
   };
 }

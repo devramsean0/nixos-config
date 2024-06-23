@@ -17,6 +17,7 @@
        beeper
        wine
        kicad
+       flameshot
     ];
     programs.steam = {
         enable = true;
