@@ -55,6 +55,19 @@
 	  ./machines/iso.nix
 	];	
       };
+      aegidius = nixpkgs.lib.nixosSystem {
+	system = "x86_64-linux";
+	specialArgs = attrs;
+	modules = [
+	  home-manager.nixosModules.home-manager {
+	    home-manager.useGlobalPkgs = true;
+	    home-manager.useUserPackages = true;
+	    home-manager.users.sean = import ./users/sean.nix;
+	  }
+	  ../hardware/acer-c720.nix
+	  ../machines/aegidius.nix
+	];
+      };
     };
   };
 }
