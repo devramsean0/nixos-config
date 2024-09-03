@@ -3,8 +3,7 @@
   imports = [
   ];
   networking.networkmanager.enable = true;
-  # Set timezone
-  time.timeZone = "Europe/London";
+  environment.localBinInPath = true;
 
   # Select internationalisation properties.
   i18n.defaultLocale = "en_GB.UTF-8";
@@ -33,6 +32,10 @@
     unzip
     acpi
     pavucontrol
+    rustup
+    gcc
+    openssl
+    pkg-config
   ];
   services.tailscale.enable = true;
 

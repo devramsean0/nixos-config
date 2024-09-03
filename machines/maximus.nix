@@ -4,7 +4,7 @@
         ../shared/core.nix
         ../shared/userland/i3.nix
     ];
-    networking.hostName = "laptop";
+    networking.hostName = "maximus";
     # Battery Stuff
     services.power-profiles-daemon.enable = false;
     services.thermald.enable = true;
@@ -17,4 +17,7 @@
         };
     };
     services.tailscale.useRoutingFeatures ="client";
+    services.blueman.enable = true;
+    hardware.bluetooth.enable = true;
+    hardware.bluetooth.powerOnBoot = true;
 }

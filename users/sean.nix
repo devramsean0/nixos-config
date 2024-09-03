@@ -10,15 +10,15 @@
   programs.home-manager.enable = true;
 
   # Program Configs
-  programs.git = {
-    enable = true;
-    userName  = "Sean Outram";
-    userEmail = "outramsean0@gmail.com";
-    extraConfig = {
-      pull.ff = "only";
-      safe.directory = "/etc/nixos";
-    };
-  };
+#  programs.git = {
+#    enable = true;
+#    userName  = "Sean Outram";
+#    userEmail = "outramsean0@gmail.com";
+#    extraConfig = {
+#      pull.ff = "only";
+#      safe.directory = "/etc/nixos";
+#    };
+#  };
   home.file.".background-image" = {
     enable = true;
     source = ../config/i3/.background-image;

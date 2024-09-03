@@ -67,6 +67,11 @@
 #	    install_url = "https://addons.mozilla.org/firefox/downloads/latest/dark-mode-by-albert-inc/latest.xpi";
 #	    installation_mode = "force_installed";
 #	  };
+          # Cors Anywhere
+	  "cors-everywhere@spenibus" = {
+ 	    install_url = "https://addons.mozilla.org/en-US/firefox/downloads/latest/cors-everywhere/latest.xpi";
+	    installation_mode = "force_installed";
+          };
         };
   
         /* ---W- PREFERENCES ---- */

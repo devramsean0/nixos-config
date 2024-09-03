@@ -18,6 +18,8 @@
        wine
        kicad
        flameshot
+       darktable
+       rclone
     ];
     programs.steam = {
         enable = true;
