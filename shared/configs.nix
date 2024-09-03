@@ -15,7 +15,7 @@ in {
   # Console
   programs.zsh = {
     enable = true;
-    initExtra = "eval \"$(starship init zsh\"";
+    initExtra = "eval \"$(starship init zsh)\"";
   };
   xdg.configFile."starship.toml" = {
     enable = true;
