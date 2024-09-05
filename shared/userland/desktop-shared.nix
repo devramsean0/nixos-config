@@ -1,8 +1,7 @@
-{ config, pkgs, wolfangaukang, ... }:
+{ config, pkgs, ... }:
 {
     imports = [
 	../../programs/firefox.nix
-	wolfangaukang.nixosModules.cloudflare-warp
     ];
     environment.systemPackages = with pkgs; [
         slack
@@ -21,17 +20,4 @@
        darktable
        rclone
     ];
-    programs.steam = {
-        enable = true;
-    };
-    services.xserver = {
-	xkb = {
-		layout = "gb";
-		variant = "";
-	};   
-    };
-    services.cloudflare-warp = {
-	enable = false;
-	certificate = ../../certificates/cloudflare.pem;
-    };
 }

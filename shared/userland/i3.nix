@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 {
     imports = [
-        ./desktop-shared.nix
+        ./desktop-core.nix
     ];
     environment.pathsToLink = [ "/libexec" ];
     services.xserver = {
