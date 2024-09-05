@@ -1,12 +1,12 @@
 { config, pkgs, ... }:
 {
     imports = [
-	../../programs/firefox.nix
+	    ../../programs/firefox.nix
+        ../../programs/vscode.nix
     ];
     environment.systemPackages = with pkgs; [
         slack
         discord
-        vscode
         libreoffice
 	cloudflare-warp
 #        zoom-us
