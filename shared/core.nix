@@ -56,7 +56,7 @@
 
   # Fonts
   fonts.packages = with pkgs; [
-        (nerdfonts.override { fonts = [ "FiraCode" ]; })
+        nerd-fonts.fira-code
   ]; 
 
   # Users
@@ -78,7 +78,7 @@
   system.stateVersion = "23.05";
 
   # Audio
-  hardware.pulseaudio.enable = true;
+  hardware.pulseaudio.enable = false;
   hardware.pulseaudio.support32Bit = true;
 }
 

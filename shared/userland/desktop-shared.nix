@@ -2,13 +2,12 @@
 {
     imports = [
 	    ../../programs/firefox.nix
-        ../../programs/vscode.nix
+#        ../../programs/vscode.nix
     ];
     environment.systemPackages = with pkgs; [
         slack
         discord
         libreoffice
-	cloudflare-warp
 #        zoom-us
 #        spotify
        _1password
@@ -20,4 +19,5 @@
        darktable
        rclone
     ];
+    programs.steam.enable = true;
 }
