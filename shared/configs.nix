@@ -77,5 +77,11 @@ in {
 	exec --no-startup-id nm-applet\n
     ";
   };
+  programs.ssh = {
+    enable = true;
+    extraConfig = ''
+      Host *
+          IdentityAgent "~/.1password/agent.sock"
+    '';
+  }; 
 }
-
