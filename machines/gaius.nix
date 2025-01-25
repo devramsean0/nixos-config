@@ -4,6 +4,7 @@
         ../shared/core.nix
         ../shared/userland/i3.nix
         ../shared/userland/desktop-shared.nix
+	../shared/xmm7360-modem.nix
     ];
     networking.hostName = "gaius";
     # xBattery Stuff
@@ -21,4 +22,12 @@
     services.blueman.enable = true;
     hardware.bluetooth.enable = true;
     hardware.bluetooth.powerOnBoot = true;
+    # Modem logic
+    networking.modemmanager.enable = true;
+    environment.systemPackages = with pkgs; [
+      usb-modeswitch
+      modemmanager
+#      linuxFirmwarePackages.iosm
+    ];
+#    services.ModemManager.enable = true;
 }
