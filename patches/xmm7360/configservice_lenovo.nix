@@ -14,7 +14,7 @@ in stdenv.mkDerivation rec {
 
   unpackPhase = ''
     mkdir -p $out
-    cp $src $out
+    cp $src $out/configservice_lenovo
   '';
 
   installPhase = ''

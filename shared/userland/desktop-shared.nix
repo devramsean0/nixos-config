@@ -18,6 +18,9 @@
        flameshot
        darktable
        rclone
+       variety
+       wine
+       wine64
     ];
     programs.steam.enable = true;
 }

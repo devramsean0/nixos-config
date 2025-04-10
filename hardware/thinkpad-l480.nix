@@ -12,7 +12,7 @@
   boot.initrd.kernelModules = [];
   boot.loader.systemd-boot.enable = true;
   boot.kernelModules = [ "kvm-intel" "iosm" ];
-  boot.extraModulePackages = [ pkgs.linuxKernel.packages.linux_6_6.acpi_call ];
+  boot.extraModulePackages = [ pkgs.linuxKernel.packages.linux_6_12.acpi_call ];
 
   fileSystems."/" =
     { device = "/dev/disk/by-label/nixos";

@@ -64,7 +64,7 @@
     sean = {
       isNormalUser = true;
       description = "Sean";
-      extraGroups = [ "networkManager" "wheel" "docker"];
+      extraGroups = [ "networkManager" "wheel" "docker""dialout"];
       packages = with pkgs; [];
       openssh = {
         authorizedKeys.keys = [
