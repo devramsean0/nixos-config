@@ -7,7 +7,6 @@ in {
             variant = "";
         };   
     };
-    environment.pathsToLink = [ "/libexec" ];
     services.xserver = {
         enable = true;
 
