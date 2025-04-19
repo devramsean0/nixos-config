@@ -15,6 +15,6 @@
   home.stateVersion = "23.11";
   home.file.".background-image" = {
     enable = true;
-    source = ../programms/i3/.background-image;
+    source = ../programs/i3/.background-image;
   };
 }
