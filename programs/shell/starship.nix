@@ -167,9 +167,18 @@
         unknown_symbol = "░";
         empty_symbol = "▃";
         display = [
-          { threshold = 20; style = "italic bold red"; }
-          { threshold = 60; style = "italic dimmed bright-purple"; }
-          { threshold = 70; style = "italic dimmed yellow"; }
+          {
+            threshold = 20;
+            style = "italic bold red";
+          }
+          {
+            threshold = 60;
+            style = "italic dimmed bright-purple";
+          }
+          {
+            threshold = 70;
+            style = "italic dimmed yellow";
+          }
         ];
       };
 
@@ -179,7 +188,10 @@
         style = "italic bright-blue";
         truncation_symbol = "⋯";
         truncation_length = 11;
-        ignore_branches = [ "main" "master" ];
+        ignore_branches = [
+          "main"
+          "master"
+        ];
         only_attached = true;
       };
 
@@ -206,7 +218,6 @@
         deleted = "[✕](italic red)";
       };
 
-
       deno = {
         format = " [deno](italic) [∫ $version](green bold)";
         version_format = "\${raw}";
@@ -222,7 +233,10 @@
       nodejs = {
         format = " [node](italic) [◫ ($version)](bold bright-green)";
         version_format = "\${raw}";
-        detect_files = [ "package-lock.json" "yarn.lock" ];
+        detect_files = [
+          "package-lock.json"
+          "yarn.lock"
+        ];
         detect_folders = [ "node_modules" ];
         detect_extensions = [ ];
       };

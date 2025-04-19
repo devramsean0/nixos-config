@@ -1,4 +1,10 @@
-{ config, lib, pkgs, home-manager, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  home-manager,
+  ...
+}:
 {
   imports = [
     home-manager.nixosModules.default
@@ -17,8 +23,8 @@
       CPU_SCALING_GOVERNOR_ON_BAT = "powersave";
     };
   };
-  services.tailscale.useRoutingFeatures ="client";
+  services.tailscale.useRoutingFeatures = "client";
   services.blueman.enable = true;
   hardware.bluetooth.enable = true;
-  hardware.bluetooth.powerOnBoot = true;  
+  hardware.bluetooth.powerOnBoot = true;
 }
