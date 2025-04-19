@@ -27,5 +27,19 @@
           }
         ];
       };
+      ISO = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        specialArgs = attrs;
+        modules = [
+          home-manager.nixosModules.home-manager {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.users.sean = import ./users/sean.nix;
+      #	    home-manager.users.root = import ./users/root.nix;
+          }
+	        "${nixpkgs}/nixos/modules/installer/cd-dvd/installation-cd-base.nix"
+	        ./hardware/iso.nix
+	      ];	
+      };
     };
 }
