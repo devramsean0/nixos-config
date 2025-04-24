@@ -14,6 +14,7 @@
                 name = "Sean Outram";
                 signingkey = "844A33EF76FBE49B50CF37B11E80D936A450AC38";
             };
+	    safe.directory = "/etc/nixos";
             "crendential \"https://github.com\"" = {
                 helper = "${pkgs.gh}/bin/gh auth git-credential";
             };
