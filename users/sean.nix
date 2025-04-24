@@ -1,27 +1,21 @@
-{ config, pkgs, ... }:
-
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 {
   imports = [
-    ../shared/configs.nix
+    ../programs/desktop/firefox.nix
+    ../programs/i3/i3-config.nix
+    ../programs/desktop/vscode.nix
+    ../programs/shell/starship.nix
   ];
   home.homeDirectory = "/home/sean";
   home.username = "sean";
   home.stateVersion = "23.11";
-  programs.home-manager.enable = true;
-
-  # Program Configs
-#  programs.git = {
-#    enable = true;
-#    userName  = "Sean Outram";
-#    userEmail = "outramsean0@gmail.com";
-#    extraConfig = {
-#      pull.ff = "only";
-#      safe.directory = "/etc/nixos";
-#    };
-#  };
   home.file.".background-image" = {
     enable = true;
-    source = ../config/i3/.background-image;
+    source = ../programs/i3/.background-image;
   };
 }
-
