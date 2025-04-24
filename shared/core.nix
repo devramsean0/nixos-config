@@ -6,7 +6,6 @@
 }:
 {
   imports = [
-    ../programs/shell/starship.nix
     ../programs/shell/zsh.nix
     ../programs/remote/openssh.nix
     ../programs/shell/git.nix
@@ -44,6 +43,7 @@
     pkg-config
     gnupg
     pinentry
+    starship
   ];
   services.tailscale.enable = true;
 

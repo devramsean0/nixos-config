@@ -9,6 +9,7 @@
     ../programs/desktop/firefox.nix
     ../programs/i3/i3-config.nix
     ../programs/desktop/vscode.nix
+    ../programs/shell/starship.nix
   ];
   home.homeDirectory = "/home/sean";
   home.username = "sean";

@@ -34,7 +34,7 @@ in
           command = ''echo "Memory: $(free -h | grep Mem | awk '{print $3}')"'';
         };
         user = {
-          interval = "perssistent";
+          interval = "persistent";
           command = ''echo "User: $(whoami)"'';
         };
         time_date = {
@@ -87,7 +87,7 @@ in
       bars = [
         {
           position = "top";
-          statusCommand = "i3blocks";
+          statusCommand = "i3blocks -c $HOME/.config/i3blocks/top";
         }
       ];
     };
