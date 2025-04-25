@@ -7,6 +7,7 @@
 {
   imports = [
     ../shared/core.nix
+#Y
     ../shared/desktop.nix
   ];
   environment.etc."setup.sh".source = ../setup.sh;
