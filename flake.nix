@@ -42,6 +42,20 @@
             }
           ];
         };
+        scipio = nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
+	  specialArgs = attrs;
+	  modules = [
+	    ./hardware/dell-precision-T1700.nix
+	    ./machines/scipio.nix
+	    home-manager.nixosModules.home-manager
+	    {
+	      home-manager.useGlobalPkgs = true;
+	      home-manager.useUserPackages = true;
+	      home-manager.users.sean = import ./users/sean.nix;
+	    }
+ 	  ];
+        };
         ISO = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
           specialArgs = attrs;
