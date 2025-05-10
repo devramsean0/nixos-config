@@ -44,6 +44,8 @@
     gnupg
     pinentry
     starship
+    picocom
+    qemu
   ];
   services.tailscale.enable = true;
 

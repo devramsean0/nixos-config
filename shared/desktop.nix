@@ -13,6 +13,18 @@
     kicad
     flameshot
     libreoffice
+    arandr
+    spotify
+    obsidian
+    filezilla
   ];
   environment.pathsToLink = [ "/libexec" ];
+  
+  # Virt Manager
+  programs.virt-manager.enable = true;
+  users.groups.libvirtd.members = [ "sean" ];
+  virtualisation.libvirtd.enable = true;
+  virtualisation.spiceUSBRedirection.enable = true;
+
+ services.teamviewer.enable = true;
 }
