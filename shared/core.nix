@@ -10,6 +10,7 @@
     ../programs/remote/openssh.nix
     ../programs/shell/git.nix
     ../programs/shell/gnupg.nix
+    ../programs/utils/syncthing.nix
   ];
   networking.networkmanager.enable = true;
   environment.localBinInPath = true;
