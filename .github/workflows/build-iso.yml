@@ -12,7 +12,7 @@ jobs:
     - name: Magic Nix Cache
       # You may pin to the exact commit or the version.
       # uses: DeterminateSystems/magic-nix-cache-action@87e8236f46702ab0ce5a058b605a173ec88d618e
-      uses: DeterminateSystems/magic-nix-cache-action@v9
+      uses: DeterminateSystems/magic-nix-cache-action@v10
     - run: export NIXPKGS_ALLOW_UNFREE=1
     - run: nix build .#nixosConfigurations.ISO.config.system.build.isoImage
     - name: Upload a Build Artifact
