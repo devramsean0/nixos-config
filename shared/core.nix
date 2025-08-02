@@ -84,4 +84,9 @@
   # Audio
   hardware.pulseaudio.enable = false;
   hardware.pulseaudio.support32Bit = true;
+  
+  programs.java = {
+    enable = true;
+    package = pkgs.temurin-bin;
+  };
 }
