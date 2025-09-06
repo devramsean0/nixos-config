@@ -12,7 +12,7 @@ let
 in
 {
   programs.firefox = {
-    package = pkgs.firefox-esr;
+    package = pkgs.firefox;
     enable = true;
     languagePacks = [ "en-GB" ];
 
