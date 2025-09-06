@@ -10,10 +10,10 @@
     prompt.enable = true;
     config = {
       init.defaultBranch = "main";
-#      commit.gpgsign = true;
+      commit.gpgsign = true;
       gpg.program = "${pkgs.gnupg}/bin/gpg";
       pull.rebase = false;
-#      tag.gpgsign = true;
+      tag.gpgsign = true;
       user = {
         email = "me@sean.cyou";
         name = "Sean Outram";
