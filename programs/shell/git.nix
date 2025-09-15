@@ -17,7 +17,7 @@
       user = {
         email = "me@sean.cyou";
         name = "Sean Outram";
-        signingkey = "E0503C5A984B8FAA3D6FC03748377A6A78729C71";
+        signingkey = "B79BCEA9DAF691AA22F652D24E0CDF139FF4BE7A";
       };
       safe.directory = "/etc/nixos";
       "crendential \"https://github.com\"" = {
