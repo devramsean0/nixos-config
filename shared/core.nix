@@ -10,7 +10,7 @@
     ../programs/remote/openssh.nix
     ../programs/shell/git.nix
     ../programs/shell/gnupg.nix
-    ../programs/utils/syncthing.nix
+    ../programs/development/postgresql.nix
   ];
   networking.networkmanager.enable = true;
   environment.localBinInPath = true;
@@ -31,6 +31,8 @@
   };
   # Configure keymaps
   console.keyMap = "uk";
+
+services.automatic-timezoned.enable = true;
 
   # Standard packages that I want on all machines + minor package allowance
   nixpkgs.config.allowUnfree = true;
@@ -85,4 +87,9 @@
   # Audio
   hardware.pulseaudio.enable = false;
   hardware.pulseaudio.support32Bit = true;
+  
+  programs.java = {
+    enable = true;
+    package = pkgs.temurin-bin;
+  };
 }

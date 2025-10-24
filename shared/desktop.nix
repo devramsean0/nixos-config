@@ -17,6 +17,10 @@
     spotify
     obsidian
     filezilla
+#    bambu-studio
+    signal-desktop
+#    orca-slicer
+    easyeda2kicad
   ];
   environment.pathsToLink = [ "/libexec" ];
   

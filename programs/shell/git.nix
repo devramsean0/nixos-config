@@ -10,14 +10,14 @@
     prompt.enable = true;
     config = {
       init.defaultBranch = "main";
-      commit.gpgsign = true;
+#      commit.gpgsign = true;
       gpg.program = "${pkgs.gnupg}/bin/gpg";
       pull.rebase = false;
-      tag.gpgsign = true;
+#      tag.gpgsign = true;
       user = {
         email = "me@sean.cyou";
         name = "Sean Outram";
-        signingkey = "2FC229E89E4750745BA7319BFA84185975973307";
+        signingkey = "B79BCEA9DAF691AA22F652D24E0CDF139FF4BE7A";
       };
       safe.directory = "/etc/nixos";
       "crendential \"https://github.com\"" = {
