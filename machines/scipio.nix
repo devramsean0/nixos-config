@@ -43,6 +43,11 @@ in {
 	destination = "s3://photobackup-devramsean0/profile/";
 	extraArgs = [ "--delete" "--storage-class" "DEEP_ARCHIVE"];
       }
+      {
+	source = "/home/sean/immich/library/backups";
+        destination = "s3://photobackup-devramsean0/backups/";
+        extraArgs = [ "--delete" "--storage-class" "STANDARD"];
+      }
     ];
   };
 }
