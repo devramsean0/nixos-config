@@ -4,20 +4,43 @@ with lib;
 
 let
   cfg = config.services.s5cmdSync;
-in {
+in
+{
   options.services.s5cmdSync = {
-    enable = mkEnableOption "Sync a folder to S3 using s5cmd";
+    enable = mkEnableOption "Sync one or more folders to S3 using s5cmd";
 
-    source = mkOption {
-      type = types.path;
-      example = "/srv/data";
-      description = "Local source folder to sync.";
-    };
+    syncTargets = mkOption {
+      type = types.listOf (types.submodule {
+        options = {
+          source = mkOption {
+            type = types.path;
+            example = "/srv/data";
+            description = "Local source folder to sync.";
+          };
 
-    destination = mkOption {
-      type = types.str;
-      example = "s3://my-bucket/backups/";
-      description = "S3 destination URL (s3://bucket/path/).";
+          destination = mkOption {
+            type = types.str;
+            example = "s3://my-bucket/backups/";
+            description = "S3 destination URL (s3://bucket/path/).";
+          };
+
+          extraArgs = mkOption {
+            type = types.listOf types.str;
+            default = [ "--delete" "--numworkers" "4" ];
+            example = [ "--delete" "--numworkers" "8" ];
+            description = "Extra arguments passed to s5cmd sync for this target.";
+          };
+        };
+      });
+      default = [ ];
+      description = ''
+        A list of sync targets. Each target specifies a source directory and
+        destination S3 path (plus optional per-target arguments).
+      '';
+      example = [
+        { source = "/srv/photos"; destination = "s3://mybucket/photos/"; }
+        { source = "/srv/backups"; destination = "s3://mybucket/backups/"; extraArgs = [ "--delete" ]; }
+      ];
     };
 
     schedule = mkOption {
@@ -31,13 +54,6 @@ in {
       type = types.str;
       default = "root";
       description = "User under which to run the sync.";
-    };
-
-    extraArgs = mkOption {
-      type = types.listOf types.str;
-      default = [ "--delete" "--numworkers" "4" ];
-      example = [ "--delete" "--numworkers" "8" ];
-      description = "Extra arguments passed to s5cmd sync.";
     };
 
     environmentFile = mkOption {
@@ -54,6 +70,7 @@ in {
   config = mkIf cfg.enable {
     environment.systemPackages = [ pkgs.s5cmd ];
 
+    # generate a single script that loops over sync targets
     systemd.services.s5cmdSync = {
       description = "S3 folder sync using s5cmd";
       wants = [ "network-online.target" ];
@@ -62,9 +79,24 @@ in {
       serviceConfig = {
         Type = "oneshot";
         User = cfg.user;
-        ExecStart = ''
-          ${pkgs.s5cmd}/bin/s5cmd sync ${concatStringsSep " " cfg.extraArgs} \
-            ${cfg.source}/ ${cfg.destination}
+
+        ExecStart = pkgs.writeShellScript "s5cmd-sync-multiple" ''
+          set -euo pipefail
+
+          echo "[s5cmd-sync] Starting multi-folder sync..."
+
+          ${concatStringsSep "\n" (map (target:
+            ''
+              echo "→ Syncing ${target.source} → ${target.destination}"
+              ${pkgs.s5cmd}/bin/s5cmd sync ${concatStringsSep " " target.extraArgs} \
+                ${target.source}/ ${target.destination} || {
+                  echo "✗ Failed to sync ${target.source}"
+                  exit 1
+                }
+            ''
+          ) cfg.syncTargets)}
+
+          echo "[s5cmd-sync] All syncs completed successfully."
         '';
       } // optionalAttrs (cfg.environmentFile != null) {
         EnvironmentFile = cfg.environmentFile;
