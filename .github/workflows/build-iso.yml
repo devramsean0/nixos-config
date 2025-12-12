@@ -16,7 +16,7 @@ jobs:
     - run: export NIXPKGS_ALLOW_UNFREE=1
     - run: nix build .#nixosConfigurations.ISO.config.system.build.isoImage
     - name: Upload a Build Artifact
-      uses: actions/upload-artifact@v4.6.2
+      uses: actions/upload-artifact@v6.0.0
       with:
         # Artifact name
         name: ISO
